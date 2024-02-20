@@ -1,0 +1,32 @@
+/* eslint-disable vue/multi-word-component-names */
+import { createApp } from 'vue';
+import App from './App.vue';
+import router from './router';
+import store from './store';
+import PrimeVue from 'primevue/config';
+import 'primevue/resources/themes/aura-light-green/theme.css';
+import "primeflex/primeflex.css";
+import 'primeicons/primeicons.css';
+import Button from 'primevue/button';
+import InputText from 'primevue/inputtext';
+import InputGroup from 'primevue/inputgroup';
+import InputGroupAddon from 'primevue/inputgroupaddon';
+import Checkbox from 'primevue/checkbox';
+import Listbox from 'primevue/listbox';
+import Dialog from 'primevue/dialog';
+import Message from 'primevue/message';
+import Dropdown from 'primevue/dropdown';
+import Calendar from 'primevue/calendar';
+
+const app = createApp(App);
+app.use(store).use(router).use(PrimeVue).mount('#app');
+app.component("Button", Button);
+app.component("InputText", InputText);
+app.component("InputGroup", InputGroup);
+app.component("InputGroupAddon", InputGroupAddon);
+app.component("Checkbox", Checkbox);
+app.component("Listbox", Listbox);
+app.component("Dialog", Dialog);
+app.component("Message", Message);
+app.component("Dropdown", Dropdown);
+app.component("Calendar", Calendar);
