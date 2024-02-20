@@ -35,6 +35,7 @@
 <script>
 import CardItem from "../components/CardItem.vue";
 import SideBar from "../components/SideBar.vue";
+// import { mapState } from "vuex";
 
 export default {
   name: "HomeView",
@@ -43,6 +44,11 @@ export default {
     CardItem,
     SideBar
   },
+  
+  /*** Using global state mangement with Vuex store ***/
+  // computed: {
+  //   ...mapState(['database'])
+  // },
 
   beforeCreate() {
     if (sessionStorage.getItem('auth') != 'true') {

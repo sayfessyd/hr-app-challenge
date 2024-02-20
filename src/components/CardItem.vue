@@ -130,8 +130,15 @@
 
 <script>
 import { ref, isProxy, toRaw } from "vue";
+// import { mapGetters } from "vuex";
+
 export default {
   name: 'CardItem',
+
+  /*** Using global state mangement with Vuex store ***/
+  // computed: {
+  //   ...mapGetters(['getDatabase'])
+  // },
 
   created() {
     this.refresh();
@@ -172,6 +179,9 @@ export default {
       if (isProxy(this.database)) {
         this.rawDatabase = toRaw(this.database);
       }
+
+      /*** Using global state mangement with Vuex store ***/
+      // this.rawDatabase == this.getDatabase;
 
       if (this.rawDatabase) {
         if (this.entity == "company") {
@@ -215,6 +225,10 @@ export default {
         this.rawDatabase.companies[companyIndex].departments[departmentIndex].employees
             .push({ name: this.employeeName });
 
+        /*** Using global state mangement with Vuex store ***/
+        // let data = { companyName: this.companyName, departmentName: this.departmentName, employeeName: this.employeeName };
+        // this.$store.commit("ADD_EMPLOYEE", data);
+
         this.$emit("update-database", this.rawDatabase);
         this.addModalVisible = false;
       }
@@ -225,6 +239,10 @@ export default {
         let companyIndex = this.rawDatabase.companies.findIndex((company) => company.name == this.selectedName);
         this.rawDatabase.companies.splice(companyIndex, 1);
 
+        /*** Using global state mangement with Vuex store ***/
+        // let data = { selectedName: this.selectedName };
+        // this.$store.commit("REMOVE_COMPANY", data);
+
         this.$emit("update-department", '');
         this.$emit("update-company", '');
 
@@ -233,6 +251,10 @@ export default {
         let departmentIndex = this.rawDatabase.companies[companyIndex].departments
                                   .findIndex((department) => department.name == this.selectedName);
         this.rawDatabase.companies[companyIndex].departments.splice(departmentIndex, 1);
+        
+        /*** Using global state mangement with Vuex store ***/
+        // let data = { companyName: this.companyName, selectedName: this.selectedName };
+        // this.$store.commit("REMOVE_DEPARTMENT", data);
 
         this.$emit("update-department", '');
 
@@ -244,6 +266,11 @@ export default {
                                 .findIndex((employee) => employee.name == this.selectedName);
         this.rawDatabase.companies[companyIndex].departments[departmentIndex].employees
             .splice(employeeIndex, 1);
+
+        /*** Using global state mangement with Vuex store ***/
+        // let data = { companyName: this.companyName, departmentName: this.departmentName, selectedName: this.selectedName };
+        // this.$store.commit("REMOVE_EMPLOYEE", data);
+        
       }
 
       this.$emit("update-database", this.rawDatabase);
