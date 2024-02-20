@@ -11,6 +11,7 @@
       padding: 0;
       border: 0;
       height: 100vh;
+      overflow: hidden;
   }
 
   #app {

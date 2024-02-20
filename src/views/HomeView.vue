@@ -2,24 +2,24 @@
   <div class="min-h-screen flex relative lg:static surface-ground">
     <SideBar></SideBar>
 
-    <div class="min-h-screen flex flex-column relative flex-auto">
+    <div class="h-screen overflow-auto flex flex-column relative flex-auto">
       <div class="h-full p-5 flex flex-column flex-auto">
         <div class="flex-auto">
           <h1 class="px-2">People directory</h1>
           <div class="surface-ground py-2">
             <div class="surface-ground">
               <div class="grid">
-                <div class="col-12 lg:col-4 p-3">
+                <div class="col-12 xl:col-4 p-3">
                   <CardItem :entity="'company'" :title="'Companies'" :database="database"
                     @update-company="onUpdateCompany($event)" @update-department="onUpdateDepartment($event)"></CardItem>
                 </div>
 
-                <div class="col-12 lg:col-4 p-3">
+                <div class="col-12 xl:col-4 p-3">
                   <CardItem :entity="'department'" :title="'Departments'" :database="database" :companyName="companyName"
                     @update-department="onUpdateDepartment($event)"></CardItem>
                 </div>
 
-                <div class="col-12 lg:col-4 p-3">
+                <div class="col-12 xl:col-4 p-3">
                   <CardItem :entity="'employee'" :title="'Employees'" :database="database" :companyName="companyName"
                     :departmentName="departmentName" @update-database="onUpdateDatabase($event)"></CardItem>
                 </div>
