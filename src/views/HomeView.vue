@@ -44,11 +44,13 @@ export default {
     SideBar
   },
 
-  created() {
+  beforeCreate() {
     if (sessionStorage.getItem('auth') != 'true') {
       this.$router.push({ path: 'login' });
     }
+  },
 
+  created() {
     this.database = {
       companies: [
         {
